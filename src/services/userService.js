@@ -12,5 +12,9 @@ const createUser = async (userInfo) => {
   const token = tokenGenerate(userInfo);
   return token;
 };
+const getAll = async () => {
+  const users = await User.findAll({ attributes: ['id', 'displayName', 'email', 'image'] });
+  return users;
+};
 
-module.exports = { createUser };
+module.exports = { createUser, getAll };

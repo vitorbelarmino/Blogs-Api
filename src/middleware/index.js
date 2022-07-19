@@ -1,4 +1,6 @@
 const { CustomError } = require('../helpers/CustomError');
+const helpers = require('../helpers/tokenValidate');
+
 const { userSchema } = require('../schema');
 
 const loginValidate = (req, _res, next) => {
@@ -18,4 +20,12 @@ const userValidate = (req, _res, next) => {
   throw new CustomError(400, message);
 };
 
-module.exports = { loginValidate, userValidate };
+const tokenValidate = (req, res, next) => {
+  const token = req.headers.authorization;
+  console.log(token);
+  if (!token) throw new CustomError(401, 'Token not found');
+  helpers.validateToken(token);
+  next();
+};
+
+module.exports = { loginValidate, userValidate, tokenValidate };
