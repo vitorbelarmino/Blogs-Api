@@ -9,7 +9,7 @@ class GlobalError {
     if (error instanceof CustomError) {
       return response.status(error.status).json({ message: error.message });
     }
-    return response.status(this.defaultStatus).json({ message: 'GlobalError' });
+    return response.status(this.defaultStatus).json({ message: 'error no servidor' });
   }
 }
 const globalError = new GlobalError();

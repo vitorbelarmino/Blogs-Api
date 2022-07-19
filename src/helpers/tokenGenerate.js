@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const tokenGenerate = (info) => {
   const generate = JWT.sign({ data: info }, process.env.JWT_SECRET, {
-  expiresIn: '1d',
+  expiresIn: '30d',
   algorithm: 'HS256',
   });
   return generate;
