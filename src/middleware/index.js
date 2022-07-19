@@ -22,7 +22,6 @@ const userValidate = (req, _res, next) => {
 
 const tokenValidate = (req, res, next) => {
   const token = req.headers.authorization;
-  console.log(token);
   if (!token) throw new CustomError(401, 'Token not found');
   helpers.validateToken(token);
   next();

@@ -17,4 +17,15 @@ const getAll = async () => {
   return users;
 };
 
-module.exports = { createUser, getAll };
+const getById = async (userId) => {
+  const user = await User.findOne({
+      where: { id: userId },
+      attributes: ['id', 'displayName', 'email', 'image'],
+    });
+
+  if (!user) throw new CustomError(404, 'User does not exist');
+  
+  return user;
+};
+
+module.exports = { createUser, getAll, getById };
