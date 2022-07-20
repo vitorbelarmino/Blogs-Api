@@ -11,6 +11,7 @@ router
   .post('/user', userValidate, user.createUser)
   .get('/user', tokenValidate, user.getAll)
   .get('/user/:id', tokenValidate, user.getById)
-  .post('/categories', tokenValidate, categoryValidate, category.createCategory);
+  .post('/categories', tokenValidate, categoryValidate, category.createCategory)
+  .get('/categories', tokenValidate, category.getAll);
 
 module.exports = { router };
