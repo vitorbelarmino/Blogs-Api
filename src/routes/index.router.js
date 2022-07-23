@@ -3,6 +3,7 @@ const { loginController } = require('../controllers/loginController');
 const user = require('../controllers/userController');
 const category = require('../controllers/CategoryController');
 const { loginValidate, userValidate, tokenValidate, categoryValidate } = require('../middleware');
+const blogPost = require('../controllers/BlogPostController');
 
 const router = Router();
 
@@ -12,6 +13,7 @@ router
   .get('/user', tokenValidate, user.getAll)
   .get('/user/:id', tokenValidate, user.getById)
   .post('/categories', tokenValidate, categoryValidate, category.createCategory)
-  .get('/categories', tokenValidate, category.getAll);
+  .get('/categories', tokenValidate, category.getAll)
+  .get('/post', tokenValidate, blogPost.getAll);
 
 module.exports = { router };
