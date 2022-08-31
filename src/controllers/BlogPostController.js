@@ -5,4 +5,12 @@ const getAll = async (req, res) => {
   return res.status(200).json(post);
 };
 
-module.exports = { getAll };
+const createPost = async (req, res) => {
+  const post = req.body;
+  const token = req.headers.authorization;
+
+  const newPost = await service.createPost(post, token);
+  return res.status(201).json(newPost);
+};
+
+module.exports = { getAll, createPost };

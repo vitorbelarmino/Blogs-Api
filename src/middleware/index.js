@@ -35,4 +35,12 @@ const categoryValidate = (req, _res, next) => {
   next();
 };
 
-module.exports = { loginValidate, userValidate, tokenValidate, categoryValidate };
+const blogPostValidate = (req, _res, next) => {
+  const { title, content, categoryIds } = req.body;
+  if (!title || !content || !categoryIds) {
+    throw new CustomError(400, 'Some required fields are missing');
+  }
+  next();
+};
+
+module.exports = { loginValidate, userValidate, tokenValidate, categoryValidate, blogPostValidate };
