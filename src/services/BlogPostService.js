@@ -41,8 +41,25 @@ const createPost = async (post, token) => {
     postId: newPost.id,
     categoryId: id,
   })));
-    
   return newPost;
 };
 
-module.exports = { getAll, createPost };
+const getId = async (id) => {
+  const post = await BlogPost.findOne({
+    where: id,
+    include: [{
+      model: User,
+      as: 'user',
+      attributes: { exclude: ['password'] },
+    },
+    {
+      model: Category,
+      as: 'categories',
+    },
+  ],
+  });
+  if (!post) throw new CustomError(404, 'Post does not exist');
+  return post;
+};
+
+module.exports = { getAll, createPost, getId };

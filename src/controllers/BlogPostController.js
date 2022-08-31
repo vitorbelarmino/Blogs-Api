@@ -13,4 +13,10 @@ const createPost = async (req, res) => {
   return res.status(201).json(newPost);
 };
 
-module.exports = { getAll, createPost };
+const getId = async (req, res) => {
+  const { id } = req.params;
+  const post = await service.getId(Number(id));
+  return res.status(200).json(post);
+};
+
+module.exports = { getAll, createPost, getId };

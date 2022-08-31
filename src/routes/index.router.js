@@ -17,6 +17,7 @@ router
   .post('/categories', tokenValidate, categoryValidate, category.createCategory)
   .get('/categories', tokenValidate, category.getAll)
   .get('/post', tokenValidate, blogPost.getAll)
-  .post('/post', tokenValidate, blogPostValidate, blogPost.createPost);
+  .post('/post', tokenValidate, blogPostValidate, blogPost.createPost)
+  .get('/post/:id', tokenValidate, blogPost.getId);
 
 module.exports = { router };
