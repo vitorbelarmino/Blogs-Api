@@ -2,22 +2,21 @@ const { Router } = require('express');
 const { loginController } = require('../controllers/loginController');
 const user = require('../controllers/userController');
 const category = require('../controllers/CategoryController');
-const {
-  loginValidate, userValidate, tokenValidate, categoryValidate, blogPostValidate,
-} = require('../middleware');
+const validate = require('../middleware');
 const blogPost = require('../controllers/BlogPostController');
 
 const router = Router();
 
 router
-  .post('/login', loginValidate, loginController)
-  .post('/user', userValidate, user.createUser)
-  .get('/user', tokenValidate, user.getAll)
-  .get('/user/:id', tokenValidate, user.getById)
-  .post('/categories', tokenValidate, categoryValidate, category.createCategory)
-  .get('/categories', tokenValidate, category.getAll)
-  .get('/post', tokenValidate, blogPost.getAll)
-  .post('/post', tokenValidate, blogPostValidate, blogPost.createPost)
-  .get('/post/:id', tokenValidate, blogPost.getId);
+  .post('/login', validate.Login, loginController)
+  .post('/user', validate.User, user.createUser)
+  .get('/user', validate.Token, user.getAll)
+  .get('/user/:id', validate.Token, user.getById)
+  .post('/categories', validate.Token, validate.Category, category.createCategory)
+  .get('/categories', validate.Token, category.getAll)
+  .get('/post', validate.Token, blogPost.getAll)
+  .post('/post', validate.Token, validate.BlogPost, blogPost.createPost)
+  .get('/post/:id', validate.Token, blogPost.getId)
+  .put('/post/:id', validate.Token, validate.EditPost, blogPost.editPost);
 
 module.exports = { router };

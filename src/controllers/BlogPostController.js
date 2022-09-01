@@ -19,4 +19,12 @@ const getId = async (req, res) => {
   return res.status(200).json(post);
 };
 
-module.exports = { getAll, createPost, getId };
+const editPost = async (req, res) => {
+  const { id } = req.params;
+  const post = req.body; 
+  const token = req.headers.authorization;
+  const editedPost = await service.editPost({ id: Number(id), ...post }, token);
+  return res.status(200).json(editedPost);
+};
+
+module.exports = { getAll, createPost, getId, editPost };

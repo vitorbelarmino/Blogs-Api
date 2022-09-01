@@ -62,4 +62,13 @@ const getId = async (id) => {
   return post;
 };
 
-module.exports = { getAll, createPost, getId };
+const editPost = async ({ id, title, content }, token) => {
+  const { email } = validateToken(token);
+  const user = await User.findOne({ where: { email } });
+  if (id !== user.id) throw new CustomError(401, 'Unauthorized user');
+  await BlogPost.update({ title, content }, { where: { id } });
+  const editedPost = await getId(id);
+  return editedPost;
+};
+
+module.exports = { getAll, createPost, getId, editPost };
