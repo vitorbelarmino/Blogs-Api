@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const { BlogPost, User, Category, PostCategory } = require('../database/models');
 const { CustomError } = require('../helpers/CustomError');
 const { validateToken } = require('../helpers/tokenValidate');
@@ -87,4 +88,20 @@ const deleteMe = async (token) => {
   await User.destroy({ where: { id: user.id } });
 };
 
-module.exports = { getAll, createPost, getId, editPost, deletePost, deleteMe };
+const postSearch = async (search) => {
+  const post = BlogPost.findAll({
+    where: {
+      [Op.or]: [
+        { title: { [Op.substring]: search } },
+        { content: { [Op.substring]: search } },
+      ],
+    },
+    include: [
+    { model: User, as: 'user' },
+    { model: Category, as: 'categories', through: { attributes: [] } },
+    ],
+  });
+  return post;
+};
+
+module.exports = { getAll, createPost, getId, editPost, deletePost, deleteMe, postSearch };

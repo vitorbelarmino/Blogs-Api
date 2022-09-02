@@ -8,7 +8,8 @@ const blogPost = require('../controllers/BlogPostController');
 const router = Router();
 
 router
-  .post('/login', validate.Login, loginController)
+.post('/login', validate.Login, loginController)
+  .get('/post/search', validate.Token, blogPost.postSearch)
   .post('/user', validate.User, user.createUser)
   .get('/user', validate.Token, user.getAll)
   .get('/user/:id', validate.Token, user.getById)

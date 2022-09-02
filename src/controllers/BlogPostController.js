@@ -1,6 +1,7 @@
 const service = require('../services/BlogPostService');
 
 const getAll = async (req, res) => {
+  console.log('oi');
   const post = await service.getAll();
   return res.status(200).json(post);
 };
@@ -40,4 +41,11 @@ const deleteMe = async (req, res) => {
   return res.status(204).end();
 };
 
-module.exports = { getAll, createPost, getId, editPost, postDelete, deleteMe };
+const postSearch = async (req, res) => {
+  console.log('oi');
+  const { q } = req.query;
+  const posts = await service.postSearch(q);
+  return res.status(200).json(posts);
+};
+
+module.exports = { getAll, createPost, getId, editPost, postDelete, deleteMe, postSearch };
