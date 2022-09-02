@@ -17,6 +17,8 @@ router
   .get('/post', validate.Token, blogPost.getAll)
   .post('/post', validate.Token, validate.BlogPost, blogPost.createPost)
   .get('/post/:id', validate.Token, blogPost.getId)
-  .put('/post/:id', validate.Token, validate.EditPost, blogPost.editPost);
+  .put('/post/:id', validate.Token, validate.EditPost, blogPost.editPost)
+  .delete('/post/:id', validate.Token, blogPost.postDelete)
+  .delete('/user/me', validate.Token, blogPost.deleteMe);
 
 module.exports = { router };

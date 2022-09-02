@@ -71,4 +71,20 @@ const editPost = async ({ id, title, content }, token) => {
   return editedPost;
 };
 
-module.exports = { getAll, createPost, getId, editPost };
+const deletePost = async (id, token) => {
+  const { email } = validateToken(token);
+  const user = await User.findOne({ where: { email } });
+  const getPost = await BlogPost.findOne({ where: { id } });
+  if (!getPost) throw new CustomError(404, 'Post does not exist');
+  if (getPost.userId !== user.id) throw new CustomError(401, 'Unauthorized user');
+  await BlogPost.destroy({ where: { id } });
+};
+
+const deleteMe = async (token) => {
+  console.log(token);
+  const { email } = validateToken(token);
+  const user = await User.findOne({ where: { email } });
+  await User.destroy({ where: { id: user.id } });
+};
+
+module.exports = { getAll, createPost, getId, editPost, deletePost, deleteMe };

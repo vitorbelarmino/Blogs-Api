@@ -27,4 +27,17 @@ const editPost = async (req, res) => {
   return res.status(200).json(editedPost);
 };
 
-module.exports = { getAll, createPost, getId, editPost };
+const postDelete = async (req, res) => {
+  const { id } = req.params;
+  const token = req.headers.authorization;
+  await service.deletePost(Number(id), token);
+  return res.status(204).end();
+};
+
+const deleteMe = async (req, res) => {
+  const token = req.headers.authorization;
+  await service.deleteMe(token);
+  return res.status(204).end();
+};
+
+module.exports = { getAll, createPost, getId, editPost, postDelete, deleteMe };
