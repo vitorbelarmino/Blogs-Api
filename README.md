@@ -1,5 +1,5 @@
 
-<h1 align="center">Blogs Api</h1>
+<h1 align="center">Car Shop</h1>
 
 <h3 align="center">Este projeto foi feito para aperfeiçoar e aplicar os princípios de Programação Orientada a Objetos (POO) para a construção de uma API com CRUD para gerenciar uma concessionária de veículos. Isso será feito utilizando o banco de dados MongoDB com ODM Mongoose</h3>
 
@@ -50,7 +50,7 @@ $ npm run dev
 As seguintes ferramentas foram usadas na construção do projeto:
 -  **[Node.js](https://nodejs.org/en/)**
 -  **[Express](https://expressjs.com/)**
--  **[TypeScript](https://www.typescriptlang.org/)
+-  **[TypeScript](https://www.typescriptlang.org/)**
 -  **[MongoBD](https://www.mongodb.com/)**
 -  **[Mongoose](https://mongoosejs.com/)**
 -  **[dotENV](https://github.com/motdotla/dotenv)**
