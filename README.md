@@ -29,8 +29,6 @@ $ cd ProjectTrybe-BlogsApi
 # Instale as dependências
 $ npm install
 
-# Prepare o .evn na raiz do projeto, já deixei um .env.example preparado, basta tirar o ".example"
-
 # Suba os containers Docker da API e do banco de dados
 $ docker-compose up -d
 
