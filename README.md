@@ -24,7 +24,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 $ git clone git@github.com:serjofrancisco/ProjectTrybe-BlogsApi.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd ProjectTrybe-BlogsApi
+$ cd Blogs-Api
 
 # Instale as dependências
 $ npm install
