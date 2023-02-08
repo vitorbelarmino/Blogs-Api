@@ -1,12 +1,11 @@
 
 <h1 align="center">Blogs Api</h1>
 
-<h3 align="center">Neste projeto Desenvolvi uma API e um banco de dados para a produção de conteúdo para um blog</h3>
+<h3 align="center">Este projeto foi feito para aperfeiçoar e aplicar os princípios de Programação Orientada a Objetos (POO) para a construção de uma API com CRUD para gerenciar uma concessionária de veículos. Isso será feito utilizando o banco de dados MongoDB com ODM Mongoose</h3>
 
 ## 💻 Sobre o projeto
 
-Uma Api de Blogs que permite cadastrar usuários, criar posts, logar, modificar posts e deletar usuários e posts. 
-Para todas essas coisas é necessário um usuário logado e este usuário pode modificar e deletas apenas os conteudos que pertencem a ele.
+Uma Api para gerenciar uma concessionária de veículos permite adicionar carros e motos, alterar e deletar veiculos já cadastratos .
 
 ---
 ## 🚀 Como executar o projeto
@@ -21,10 +20,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 ```bash
 
 # Clone este repositório
-$ git clone git@github.com:serjofrancisco/ProjectTrybe-BlogsApi.git
+$ git clone git@github.com:vitorbelarmino/Car-shop.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd Blogs-Api
+$ cd Car-shop
 
 # Instale as dependências
 $ npm install
@@ -36,12 +35,12 @@ $ docker-compose up -d
 $ npm run prestart
 $ npm run seed
 
-# O servidor inciará na porta:3000 - acesse http://localhost:3000
+# O servidor inciará na porta:3001 - acesse http://localhost:3001
 
 # Caso queira executar a aplicação em modo de desenvolvimento
-$ npm run debug
+$ npm run dev
 
-# O servidor inciará na porta:3001 - acesse http://localhost:3001
+# O servidor inciará na porta:3002 - acesse http://localhost:3002
 
 ```
 </details>
@@ -50,11 +49,10 @@ $ npm run debug
 
 As seguintes ferramentas foram usadas na construção do projeto:
 -  **[Node.js](https://nodejs.org/en/)**
--    **[Express](https://expressjs.com/)**
--   **[Sequelize](https://sequelize.org/)**
--   **[dotENV](https://github.com/motdotla/dotenv)**
--   **[Docker](https://www.docker.com/)**
--   **[MySQL](https://www.mysql.com/)**
--   **[Joi](https://github.com/hapijs/joi)**
--   **[Jwt](https://jwt.io/)**
+-  **[Express](https://expressjs.com/)**
+-  **[TypeScript](https://www.typescriptlang.org/)
+-  **[MongoBD](https://www.mongodb.com/)**
+-  **[Mongoose](https://mongoosejs.com/)**
+-  **[dotENV](https://github.com/motdotla/dotenv)**
+-  **[Docker](https://www.docker.com/)**
 
