@@ -29,10 +29,21 @@ $ cd ProjectTrybe-BlogsApi
 # Instale as dependências
 $ npm install
 
-# Execute a aplicação em modo de desenvolvimento
+$ Prepare o .evn na raiz do projeto, já deixei um .env.example preparado, basta tirar o ".example"
+
+# Suba os containers Docker da API e do banco de dados
+$ docker-compose up
+
+# Criar e popular o banco de dados
+$ npm run prestart
+$ npm run seed
+
+# O servidor inciará na porta:3000 - acesse http://localhost:3000
+
+# Caso queira executar a aplicação em modo de desenvolvimento
 $ npm run debug
 
-# O servidor inciará na porta:3000 - acesse http://localhost:3000  
+# O servidor inciará na porta:3001 - acesse http://localhost:3001
 
 ```
 </details>
