@@ -32,7 +32,7 @@ $ npm install
 $ Prepare o .evn na raiz do projeto, já deixei um .env.example preparado, basta tirar o ".example"
 
 # Suba os containers Docker da API e do banco de dados
-$ docker-compose up
+$ docker-compose up -d
 
 # Criar e popular o banco de dados
 $ npm run prestart
